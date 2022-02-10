@@ -1,0 +1,17 @@
+package Ex4;
+
+/**
+ * Created by Danila Shestipalov
+ *
+ * @author G3B
+ * Умножение
+ * */
+
+public class Mul extends Arguments{
+    public static float getResult() {
+        return Arguments.getArgument1() * Arguments.getArgument2();
+    }
+    public Mul(float argument1, float argument2) {
+        super(argument1, argument2);
+    }
+}
