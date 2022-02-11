@@ -24,6 +24,7 @@ public class Program {
         firstAgr = scanner.nextFloat();
         System.out.print("Введите второе число: ");
         secondAgr = scanner.nextFloat();
+        scanner.close();
         Arguments arguments = new Arguments(firstAgr, secondAgr);
         /**Относительно операции получаем и выводим результат*/
         switch (curOp) {
