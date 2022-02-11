@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @see #main(String[])
  */
 
-public class maxStringInArray {
+public class MaxStringInArray {
     public static void main (String [] args){
         System.out.println();
         int arrayCount=0;
@@ -17,8 +17,7 @@ public class maxStringInArray {
         Scanner scanner = new Scanner(System.in);
         arrayCount = scanner.nextInt();
         String [] stringArray = new String[arrayCount];
-        System.out.println("Вводите массив по одному слову, после каждого слова нажимайте enter");
-        scanner.nextLine();
+        System.out.println("Вводите массив по одному слову, после каждого слова нажимайте enter /n");
         scanner = new Scanner(System.in);
         for (int i=0;i<stringArray.length; i++) {
             stringArray[i]= scanner.nextLine();

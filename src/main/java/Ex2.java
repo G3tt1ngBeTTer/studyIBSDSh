@@ -26,7 +26,7 @@ public class Ex2 {
                     Ex1.main(null);
                     break;
                 case 2:
-                    maxStringInArray.main(null);
+                    MaxStringInArray.main(null);
                     break;
                 default:
             /***/
