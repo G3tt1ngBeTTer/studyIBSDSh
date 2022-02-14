@@ -1,6 +1,14 @@
 package Ex4;
 
+/**
+ * Created by Danila Shestipalov
+ *
+ * @author G3B
+ *
+ */
+
 public class Calculator {
+    /**Переменные*/
     private int argument1;
     private int argument2;
     private String operation;
@@ -29,6 +37,8 @@ public class Calculator {
         this.argument1 = argument1;
     }
 
+    /**Метод получения результата
+     * */
     public void getResultOfCalculation(float arg1, float arg2, String operation) {
         switch (operation) {
             case "+":
@@ -43,8 +53,13 @@ public class Calculator {
             case "/":
                 result=arg1 / arg2;
             break;
-//            default:
-//                System.err.println("Ошибка незивестная операция "+ operation+ ", будет возвращён результат ноль");
+            /**
+             *             Убрал, хотя по моему мнению, можно оставить
+             *             default:
+             *             System.err.println("Ошибка незивестная операция "+ operation+ ", будет возвращён результат ноль");
+             *
+             */
+
         }
     }
 

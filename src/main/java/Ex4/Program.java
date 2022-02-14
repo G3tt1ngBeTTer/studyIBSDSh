@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class Program {
 
     public static void main(String[] args) {
+        /**Создаём новые объекты и выводим из них результат в консоль методом getResult*/
         Calculator calc1 = new Calculator(28, 32, "+");
         System.out.println(calc1.getResult());
         Calculator calc2 = new Calculator(28, 32, "fafaasf");
