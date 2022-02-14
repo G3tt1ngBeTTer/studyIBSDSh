@@ -4,11 +4,12 @@ package Ex4;
  * Created by Danila Shestipalov
  *
  * @author G3B
- *
  */
 
 public class Calculator {
-    /**Переменные*/
+    /**
+     * Переменные
+     */
     private int argument1;
     private int argument2;
     private String operation;
@@ -37,35 +38,69 @@ public class Calculator {
         this.argument1 = argument1;
     }
 
-    /**Метод получения результата
-     * */
-    public void getResultOfCalculation(float arg1, float arg2, String operation) {
+    public String getOperation() {
+        return operation;
+    }
+
+    public void setOperation(String operation) {
+        this.operation = operation;
+    }
+
+    /**
+     * Метод получения результата
+     */
+    public void getResultOfCalculation(float arg1, float arg2, String operation) throws operationException, nullDivException {
+
+
         switch (operation) {
             case "+":
-                result=arg1 + arg2;
-            break;
+                result = arg1 + arg2;
+                break;
             case "-":
-                result=arg1 - arg2;
-            break;
+                result = arg1 - arg2;
+                break;
             case "*":
-                result=arg1 * arg2;
-            break;
+                result = arg1 * arg2;
+                break;
             case "/":
-                result=arg1 / arg2;
-            break;
-            /**
-             *             Убрал, хотя по моему мнению, можно оставить
-             *             default:
-             *             System.err.println("Ошибка незивестная операция "+ operation+ ", будет возвращён результат ноль");
-             *
-             */
-
+                if (arg2 == 0) {
+                    throw new nullDivException();
+                } else {
+                    result = arg1 / arg2;
+                }
+                break;
+            default:
+                throw new operationException();
         }
     }
 
     public float getResult() {
-        getResultOfCalculation(argument1, argument2, operation);
+        try {
+            getResultOfCalculation(argument1, argument2, operation);
+        } catch (operationException e) {
+            System.err.println(e.getMsg());
+        } catch (nullDivException e) {
+            System.err.println(e.getMsg());
+        }
         return result;
+    }
+
+    /**Ошибка при деление на ноль*/
+    class nullDivException extends Exception {
+        private int arg2 = getArgument2();
+
+        public String getMsg() {
+            return "Ошибка на ноль делить нельзя! Вторым аргументом был подан - " + arg2;
+        }
+    }
+
+    /**Ошибка при вводе неправельной операции*/
+    class operationException extends Exception {
+        private String op = getOperation();
+
+        public String getMsg() {
+            return "Ошибка неизвестная операция " + op + ", будет возвращён результат ноль";
+        }
     }
 }
 

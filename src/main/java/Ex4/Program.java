@@ -7,15 +7,17 @@ package Ex4;
  * @see #main(String[])
  */
 
-import java.util.Scanner;
+
 
 public class Program {
 
     public static void main(String[] args) {
         /**Создаём новые объекты и выводим из них результат в консоль методом getResult*/
-        Calculator calc1 = new Calculator(28, 32, "+");
-        System.out.println(calc1.getResult());
+        Calculator calc1 = new Calculator(28, 0, "/");
+        System.out.println("Результат вычисления 1 = " + calc1.getResult());
         Calculator calc2 = new Calculator(28, 32, "fafaasf");
-        System.out.println(calc2.getResult());
+        System.out.println("Результат вычисления 2 = " +calc2.getResult());
+        Calculator calc3 = new Calculator(28, 32, "*");
+        System.out.println("Результат вычисления 3 = " +calc3.getResult());
     }
 }
