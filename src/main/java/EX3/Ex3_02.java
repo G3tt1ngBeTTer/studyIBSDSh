@@ -9,6 +9,8 @@ package EX3;
 
 public class Ex3_02 {
     public static void main(String[] args) {
+        int candyWeight=0;
+        int candyPrice=0;
         /**Вводим информацию о вафлях и конфетах*/
         Waffle waffle1 = new Waffle("Шоколадная вафля", 250, 100,  "Шоколадная");
         Candy candy1 = new Candy("Конфеты шоколадные 'Лесная лавка'", 50, 28, "Орехи и вафли");
@@ -20,6 +22,10 @@ public class Ex3_02 {
         System.out.println("Ващ подарок состоит из:");
             for (someCandy candyBoxForMe: candyBox){
                 System.out.println(candyBoxForMe.toString());
+                candyWeight+=candyBoxForMe.getWeight();
+                candyPrice+=candyBoxForMe.getPrice();
             }
+        System.out.println("Общий вес подарка равен "+candyWeight+" грамм");
+        System.out.println("Общая стоимость подарка равна "+candyPrice+" рублей");
     }
 }

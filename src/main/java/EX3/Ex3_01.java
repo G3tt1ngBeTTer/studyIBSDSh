@@ -30,7 +30,7 @@ public class Ex3_01 {
                     maxNeg=someMassiv[i];
                 }
             } else {
-                if (someMassiv[i] >= 0) {
+                if (someMassiv[i] > 0) {
                     if (minPos > someMassiv[i]) {
                         minPosPosition = i;
                         minPos=someMassiv[i];
@@ -45,8 +45,8 @@ public class Ex3_01 {
         System.out.println();
         System.out.println("Максимальный элемент среди отрицательных (Приближающийся к нулю) - "+maxNeg+" на позиции "
                 + maxNegPosition);
-        System.out.println("Минимальный элемент среди положительных (Приближающийся к минус одному (0 - положительное" +
-                " число)) - "+minPos+" на позиции " + minPosPosition);
+        System.out.println("Минимальный элемент среди положительных (Приближающийся нулю" +
+                " число) - "+minPos+" на позиции " + minPosPosition);
         /**Выводим массив после изменения*/
         System.out.println("Массив после изменения:");
         for (int i=0; i<someMassiv.length; i++) {
