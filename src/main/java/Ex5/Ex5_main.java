@@ -22,7 +22,6 @@ public class Ex5_main {
         String maxRepeatWord;
         int maxRepeat = 0;
         /**Переменные для обработки контента из файла*/
-        String goodContentInString;
         String[] content;
         ArrayList<String> contentSet = new ArrayList<String>();
         Comparator<String> comparator = new Comparator<String>() {
@@ -41,11 +40,24 @@ public class Ex5_main {
         contentInString = getContent(path);
 
         /**Удаляем лишние пробелы*/
-        goodContentInString = contentInString.replaceAll(twoSpaces, oneSpace);
-        content = goodContentInString.split(" ");
+        while(contentInString.indexOf(twoSpaces) >= 0) {
+            contentInString=contentInString.replace(twoSpaces, oneSpace);
+        }
+        //contentInString = contentInString.replaceAll(twoSpaces, oneSpace);
+
+
+        /**Проверка на то если файл начинается с пробела*/
+        int firstSpace;
+        firstSpace=contentInString.indexOf(" ");
+        if (firstSpace==0) {
+            contentInString=contentInString.replaceFirst(" ", "");
+        };
+
+        /**Рахбивам строку и записываем её в массив строк*/
+        content = contentInString.split(" ");
 
         /**Проверка на заполненние файла*/
-        if (goodContentInString.equals("")) {
+        if (contentInString.equals("")) {
             System.err.println("Выбранный файл пуст");
         } else {
 
