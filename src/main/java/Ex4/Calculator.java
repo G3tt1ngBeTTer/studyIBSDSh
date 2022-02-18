@@ -74,19 +74,13 @@ public class Calculator {
         }
     }
 
-    public float getResult() {
-        try {
-            getResultOfCalculation(argument1, argument2, operation);
-        } catch (operationException e) {
-            System.err.println(e.getMsg());
-        } catch (nullDivException e) {
-            System.err.println(e.getMsg());
-        }
+    public float getResult() throws nullDivException, operationException {
+        getResultOfCalculation(argument1, argument2, operation);
         return result;
     }
 
     /**Ошибка при деление на ноль*/
-    class nullDivException extends Exception {
+    public class nullDivException extends Exception {
         private int arg2 = getArgument2();
 
         public String getMsg() {
@@ -95,14 +89,13 @@ public class Calculator {
     }
 
     /**Ошибка при вводе неправельной операции*/
-    class operationException extends Exception {
+    public class operationException extends Exception {
         private String op = getOperation();
 
         public String getMsg() {
-            return "Ошибка неизвестная операция " + op + ", будет возвращён результат ноль";
+            return "Ошибка неизвестная операция " + op;
         }
     }
-
 
 }
 

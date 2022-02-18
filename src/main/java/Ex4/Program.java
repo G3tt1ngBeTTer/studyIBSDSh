@@ -14,6 +14,7 @@ import java.util.Scanner;
 public class Program {
 
     public static void main(String[] args) {
+        try {
 //        /**Создаём новые объекты и выводим из них результат в консоль методом getResult*/
 //        Calculator calc1 = new Calculator(28, 0, "/");
 //        System.out.println("Результат вычисления 1 = " + calc1.getResult());
@@ -34,11 +35,28 @@ public class Program {
         Scanner scanner = new Scanner(System.in);
         operation = scanner.nextLine();
         System.out.print("Введите первое число: ");
-        firstAgr = scanner.nextInt();
+        firstAgr = inputInt(scanner);
         System.out.print("Введите второе число: ");
-        secondAgr = scanner.nextInt();
+        secondAgr = inputInt(scanner);;
         scanner.close();
         Calculator calc4 = new Calculator(firstAgr,secondAgr,operation);
         System.out.println("Результат вычисления = " +calc4.getResult());
+        } catch (Calculator.nullDivException e) {
+            System.err.println(e.getMsg());
+            e.printStackTrace();
+        } catch (Calculator.operationException e) {
+            System.err.println(e.getMsg());
+            e.printStackTrace();
+        }
+
+    }
+    private static int inputInt(Scanner scanner){
+        int argument;
+        while (!scanner.hasNextInt()){
+            System.out.println(scanner.next()+" это не целочисленное значение, попробуйте ещё раз");
+            System.out.print("Введите повторно число: ");
+        }
+        argument = scanner.nextInt();
+        return argument;
     }
 }
